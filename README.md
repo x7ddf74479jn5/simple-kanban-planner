@@ -1,6 +1,13 @@
 # Simple Kanban Planner
 
-TODO
+![Screenshot](/public/simple-kanban-planner.webp)
 
-- add screenshots
-- add description
+Trelloライクなシンプルなタスク管理アプリ
+
+## Stack
+
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- Firebase
