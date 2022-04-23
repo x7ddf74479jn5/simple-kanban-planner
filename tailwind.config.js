@@ -1,7 +1,16 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#5222d0",
+        secondary: "#ec615b",
+      },
+      gridAutoColumns: {
+        270: "270px",
+        220: "220px",
+      },
+    },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require("@tailwindcss/typography")],
 };

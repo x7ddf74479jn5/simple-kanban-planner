@@ -36,7 +36,6 @@ module.exports = {
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "func-style": ["error", "expression"],
-    "no-restricted-imports": ["error", { paths: [{ name: "react", importNames: ["default"] }] }],
     "react/display-name": "error",
     "react/react-in-jsx-scope": "off",
     "react/jsx-handler-names": [
@@ -103,6 +102,10 @@ module.exports = {
     {
       files: ["./src/App.tsx", "./vite.config.ts"],
       rules: { "import/no-default-export": "off" },
+    },
+    {
+      files: ["./src/vite-env.d.ts", "tailwind.config.js"],
+      rules: { "@typescript-eslint/naming-convention": "off" },
     },
   ],
 };
