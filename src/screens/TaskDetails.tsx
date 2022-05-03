@@ -72,6 +72,12 @@ export const TaskDetails = ({ taskDetails, boardId, userId, columnDetails, onClo
     setIsEditing(false);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === "Space") {
+      setIsEditing(true);
+    }
+  };
+
   return (
     <div className="text-sm md:px-12 md:text-base">
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} ariaText="Task Delete confirmation">
@@ -153,8 +159,14 @@ export const TaskDetails = ({ taskDetails, boardId, userId, columnDetails, onClo
                 </div>
               </div>
 
-              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-              <div className={`${isEditing ? "hidden" : ""}`} onClick={handleStartEdit}>
+              {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+              <div
+                className={`${isEditing ? "hidden" : ""}`}
+                onClick={handleStartEdit}
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                tabIndex={0}
+                onKeyUp={handleKeyDown}
+              >
                 <label
                   className="block text-xs tracking-wide text-gray-500 uppercase  sm:text-sm"
                   htmlFor="description"

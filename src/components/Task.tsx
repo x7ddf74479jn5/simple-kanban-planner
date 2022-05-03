@@ -25,6 +25,14 @@ export const Task = ({ allData, id, index, boardId, userId, columnDetails, filte
   const theTask = allData.tasks[id];
   const isMatched = filterBy === null ? false : filterBy === "all" ? true : theTask.priority === filterBy;
 
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === "Space") {
+      if (!isModalOpen) {
+        handleOpenModal();
+      }
+    }
+  };
+
   return (
     <div className={`${isMatched ? "" : "opacity-10"}`}>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} ariaText="Task Details">
@@ -39,9 +47,10 @@ export const Task = ({ allData, id, index, boardId, userId, columnDetails, filte
 
       <Draggable draggableId={id} index={index}>
         {(provided, snapshot) => (
-          // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+          // eslint-disable-next-line jsx-a11y/no-static-element-interactions
           <div
             onClick={handleOpenModal}
+            onKeyUp={handleKeyUp}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             ref={provided.innerRef}
