@@ -4,6 +4,13 @@
 
 Trelloライクなシンプルなタスク管理アプリ
 
+Demo: [https://simple-kanban-planner.web.app/](https://simple-kanban-planner.web.app/)
+
+## Features
+
+- Draggable UI
+- ボード作成、TODO登録
+
 ## Stack
 
 - React
